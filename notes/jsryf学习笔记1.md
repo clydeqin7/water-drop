@@ -84,3 +84,69 @@ typeof null // "object"
 - `0`
 - `NaN`
 - `""`或`''`（空字符串）
+
+## for…in循环
+
+`for...in`循环用来遍历一个对象的全部属性。
+
+```
+var obj = {
+  x: 1,
+  y: 2
+};
+var props = [];
+var i = 0;
+
+for (props[i++] in obj);
+
+props // ["x", "y"]
+```
+
+`for...in`循环有两个使用注意点。
+
+- 它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性
+- 它不仅遍历对象自身的属性，还遍历继承的属性
+
+如果只想遍历对象本身的属性，可以使用`hasOwnProperty`方法，在循环内部判断一下是不是自身的属性。
+
+```
+for (var key in person) {
+  if (person.hasOwnProperty(key)) {
+    console.log(key);
+  }
+}
+```
+
+## with语句
+
+`with`语句的格式如下：
+
+```
+with (object) {
+  statements;
+}
+```
+
+它的作用是操作同一个对象的多个属性时，提供一些书写的方便。
+
+```
+// 例一
+with (o) {
+  p1 = 1;
+  p2 = 2;
+}
+// 等同于
+o.p1 = 1;
+o.p2 = 2;
+
+// 例二
+with (document.links[0]){
+  console.log(href);
+  console.log(title);
+  console.log(style);
+}
+// 等同于
+console.log(document.links[0].href);
+console.log(document.links[0].title);
+console.log(document.links[0].style);
+```
