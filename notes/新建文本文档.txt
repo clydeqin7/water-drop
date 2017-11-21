@@ -1,0 +1,66 @@
+===JS历史===
+ECMAScript 3 流行范围广
+ECMAScript 4 胎死腹中
+ECMAScript 5 
+key: 方应杭 es5  特性--> IE7 X
+Rails社区 Ruby-CoffeeScript JS改良版 类、箭头函数、opptional chain语法
+ECMAScript 6  特性 --> IE8 X
+ES 6 新特性列表 现代编程语言
+JS原创之处并不优秀，优秀之处并非原创。 -JS之父
+
+wepback .ESnext
+没有发布的特性已经被使用了（Bable转义）
+
+===数据类型===
+七种数据类型：(不区分大小写）
+数值/字 number
+字符串 string
+布尔 boolean
+symbol(符号）
+null 
+undifined  ---以上简单类型
+对象 object ---复杂类型
+
+--------
+number  
+十进制 1 1.1 .1 1.23e2
+二进制 0b11
+八进制 011 注意0开头
+十六进制 0x11 
+--------
+string
+'你好' "你好"  '' "" ' ' " "
+转义 表示的string就是'时, var a="'"
+     表示的string是'"时, var a='\'"'
+ \转义符 \n回车 \t制表符 \不占长度
+||多行字符串
+var s1 = '12345\
+         6789'
+var s2 = '123' + '456' [推荐]
+var s3 = `123
+456` s3.length = 7(包含回车）   
+ES6新特性
+------------
+布尔 boolean  人名，数学家，逻辑学
+true 真 
+false 假
+&& || 
+-------------
+symbol 
+key: symbol 方应杭
+-------------
+null类型
+undefined类型 
+都表示什么也没有（JS BUG）
+
+1.变量没有值 -- undefined(语法)
+2.有一个对象object,现在不想给值 -- null (惯例）
+  有一个非对象,不想给值 -- undefined
+--------------
+object 对象 哈希表key-value
+对象就是简单类型的组合
+{
+ key:value,
+}	  
+person['key'] --> 单引号不能省略
+key: 'a  b' '9a' [成立]  9a [不成立]   
