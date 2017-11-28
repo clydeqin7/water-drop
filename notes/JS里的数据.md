@@ -101,6 +101,12 @@ search key: symbol 方应杭
 1. 变量没有值 -- undefined。（语法）
 2. 有一个对象object,现在不想给值 -- null;有一个非对象,不想给值 -- undefined。（惯例）
 
+> `NaN`是唯一一个不等于自身的值
+>
+> ```
+> NaN === NaN // false
+> ```
+
 ### 对象(object )
 
 对象就是简单类型的组合,哈希表{key:value,}
