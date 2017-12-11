@@ -10,9 +10,21 @@
 >
 > API (web 或 XML 页面) = DOM + JS (脚本语言)
 
-### Node
+### Node(节点)
 
-Node是一个接口，许多DOM类型从这个接口继承，继承其方法和属性如`Document`, `Element`。
+DOM的最小组成单位叫做节点（node）。文档的树形结构（DOM树），就是由各种不同类型的节点组成。每个节点可以看作是文档树的一片叶子。
+
+节点的类型有七种。
+
+- `Document`：整个文档树的顶层节点
+- `DocumentType`：`doctype`标签（比如`<!DOCTYPE html>`）
+- `Element`：网页的各种HTML标签（比如`<body>`、`<a>`等）
+- `Attribute`：网页元素的属性（比如`class="right"`）
+- `Text`：标签之间或标签包含的文本
+- `Comment`：注释
+- `DocumentFragment`：文档的片段
+
+这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。
 
 #### 重要属性
 
@@ -20,7 +32,7 @@ Node是一个接口，许多DOM类型从这个接口继承，继承其方法和�
 
 | 常量                                 | 值    | 描述                                       |
 | ---------------------------------- | ---- | ---------------------------------------- |
-| `Node.ELEMENT_NODE`                | `1`  | 一个 [`元素`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element) 节点，例如 [``](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/p) 和 [``](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/div)。 |
+| `Node.ELEMENT_NODE`                | `1`  | 一个 [`元素`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element) 节点，例如 `p`和 `div`。 |
 | `Node.TEXT_NODE`                   | `3`  | [`Element`](https://developer.mozilla.org/zh-CN/docs/Web/API/Element) 或者 [`Attr`](https://developer.mozilla.org/zh-CN/docs/Web/API/Attr) 中实际的  [`文字`](https://developer.mozilla.org/zh-CN/docs/Web/API/Text) |
 | `Node.PROCESSING_INSTRUCTION_NODE` | `7`  | 一个用于XML文档的 [`ProcessingInstruction`](https://developer.mozilla.org/zh-CN/docs/Web/API/ProcessingInstruction) ，例如 `<?xml-stylesheet ... ?>` 声明。 |
 | `Node.COMMENT_NODE`                | `8`  | 一个 [`Comment`](https://developer.mozilla.org/zh-CN/docs/Web/API/Comment) 节点。 |
