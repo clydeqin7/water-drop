@@ -2,7 +2,7 @@
 
 ## 基本用法
 
-`Array`是JavaScript的内置对象，同时也是一个构造函数，可以用它生成新的数组。
+Array是JavaScript的内置对象，同时也是一个构造函数，可以用它生成新的数组。
 
 window.Array 全局对象（也是函数）
 
