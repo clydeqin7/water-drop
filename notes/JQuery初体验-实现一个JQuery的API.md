@@ -16,6 +16,8 @@ $div.setText('hi') // 可将所有 div 的 textContent 变为 hi
 
 封装一个函数，实现能给div添加class。
 
+
+
 ## 实现setText
 
 封装一个函数，实现能给div设置内容。
