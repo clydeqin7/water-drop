@@ -60,7 +60,72 @@ setText(item3, 'hello');
 
 ## 整合
 
-现在我们封装了getSiblings, addClass, setText三个函数，接下来就是整合到一起。[代码链接](http://js.jirengu.com/lewunapizu/34/edit)
+现在我们封装了getSiblings, addClass, setText三个函数，接下来就是整合到一起。[代码链接](http://js.jirengu.com/nitusevudi/23/edit)
+
+```
+function jQuey(nodeOrSelector){
+  let nodes = {}
+  if(typeof nodeOrSelector === 'string'){
+    let temp = document.querySelectorAll(nodeOrSelector)
+    for(let i=0; i<temp.length; i++){
+      nodes[i] = temp[i]
+    }
+    nodes.length = temp.length
+  }else if(nodeOrSelector instanceof Node){
+    nodes = {
+      0: nodeOrSelector,
+      length: 1
+    }
+  }
+  
+  nodes.addClass = function(classes){ 
+    if(Array.isArray(classes) === true){
+      classes.forEach( (value) => {//forEach局限了只能是Array
+        for(let i=0; i<nodes.length; i++){
+          nodes[i].classList.add(value)       
+        }
+      })      
+    }else if(typeof classes === 'string'){
+        for(let i=0; i<nodes.length; i++){
+          nodes[i].classList.add(classes)       
+        }
+    }
+ 
+  }
+  nodes.setText = function(text){
+    for(let i=0; i<nodes.length; i++){
+      nodes[i].textContent = text
+    }
+  }
+  nodes.getText = function(){
+    let texts = []
+    for(let i=0; i<nodes.length; i++){
+      texts.push(nodes[i].textContent)
+    }
+    return texts
+  }
+  
+  return nodes  
+}
+```
+
+其中setText和getText可以合并
+
+```
+nodes.text = function(text){
+  if(text === undefined){
+    let texts = []
+      for(let i=0; i<nodes.length; i++){
+        texts.push(nodes[i].textContent)
+      }
+      return texts    
+  }else{
+     for(let i=0; i<nodes.length; i++){
+      nodes[i].textContent = text
+    }   
+  }
+}
+```
 
 
 
