@@ -32,11 +32,11 @@ Function.prototype.__proto__ === ????填空10???? // 为 true
 空4：Function.prototype
 空5：Object.prototype
 
-空6：Object.prototype
-空7：Object.prototype
-空8：Object.ptototype
+*空6：Function.prototype
+*空7：Function.prototype
+*空8：Function.prototype
 
-空9：Object.prototype
+*空9：Boolean.prototype
 
 空10：Object.prototype
 ```
@@ -56,7 +56,7 @@ new fn() 会执行 fn，并打印出 this，请问这个 this 有哪些属性？
 ### A:
 
 ```
-this的自由属性为空，
+this的自有属性为空，
 this的原型有：constructor、--proto--, hasOwnProperty、isPrototypeOf、toString、valueOf等属性
 ```
 
@@ -96,6 +96,26 @@ this的原型有：constructor、--proto--, hasOwnProperty、isPrototypeOf、toS
 > 在 ES5 中如何用函数模拟一个类？
 
 ### A:
+
+```
+//狗类
+function Dog(name, color) {
+  //自有属性
+  this.name = name
+  this.color = color
+}
+//原型共有属性,所有实例共有的属性定义在prototype里，节约内存提升效率
+Dog.prototype.eat = () => alert('啃骨头')
+Dog.prototype.sleep = () => alert('睡觉')
+
+//现在我实例生成了2个对象（2条狗），它们的自有属性是name, color;原型上有eat, sleep这2个属性
+var dog1 = new Dog('大黄', 'yellow')
+var dog2 = new Dog('小灰', 'gray')
+
+dog1.name === dog2.name //false
+dog1.eat === dog2.eat //true
+
+```
 
 ### Q6:
 
