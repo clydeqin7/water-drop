@@ -135,10 +135,10 @@ new是Javascript语言的一个关键字。
 
 new关键字帮我们做了一下几件事
 
- 	1. 帮我们创建临时对象
- 	2. 给我们绑定原型
- 	3. 给我们return临时对象
- 	4. 给原型确定名字为prototype
+   	1. 帮我们创建临时对象
+   	2. 给我们绑定原型
+   	3. 给我们return临时对象
+   	4. 给原型确定名字为prototype
 
 new操作默认还加了个constructor属性
 
