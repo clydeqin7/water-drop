@@ -6,11 +6,11 @@
 
 ## Cookie的特点
 
-1. 服务器通过 Set-Cookie 响应头设置 Cookie
-2. 浏览器得到 Cookie 之后, 每次请求都要带上 Cookie
-3. 服务器读取 Cookie 就知道登录用户的信息
-
-### Q&A
+1. 服务器通过 Set-Cookie 头给客户端一串字符串
+2. 客户端每次访问相同域名的网页时，必须带上这段字符串
+3. 客户端要在一段时间内保存这个Cookie
+4. Cookie 默认在用户关闭页面后就失效，后台代码可以任意设置 Cookie 的过期时间
+5. 大小大概在 4kb 以内
 
 Q: 我在 Chrome 登录了得到 Cookie，用Safari访问, Safari会带上Cookie吗？
 
@@ -67,6 +67,24 @@ Set-Cookie: xxxxx_cookie=clyde; HttpOnly; Path=/    //此字段设置Cookie
 
 [页面内容]
 ```
+
+## Cookie 如何设置过期时间？
+
+通过`Set-Cookie`响应头添加`Expires`或 `Max-Age`实现设置过期时间。
+
+`Expires`接收符合`HTTP-date`规范的时间戳，告诉浏览器到什么时候Cookie都有效，时间受到本地设置时间影响（不稳定），
+
+`Max-Age`接收秒数，让浏览器从收到消息多少时间内Cookie有效，
+
+两者同时存在，`Max-Age`优先级更高。
+
+例子: `Set-Cookie: namexxxx=xxxxxx; Max-Age= 8808293; Expires=Wed, 21 Oct 2018 07:28:00 GMT`
+
+## 如何删除 Cookie？
+
+// TODO
+
+Cookie默认是在用户关闭页面后失效，
 
 ## 登录注册
 

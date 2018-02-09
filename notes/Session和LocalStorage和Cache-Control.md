@@ -3,10 +3,18 @@
 **服务器上的哈希表**
 
 1. 将 SessionID (随机数)通过 Cookie 发给客户端
+
 2. 客户端访问服务器时，服务器读取 SessionID
+
 3. 服务器有一块内存（哈希表）保存了所有 Session
+
 4. 通过 SessionID 我们可以得到对应用户的隐私信息，如 id, email
+
 5. 这块内存(哈希表)就是服务器上的所有 session
+
+   ​
+
+**一般来说，Session 基于 Cookie 来实现。**
 
 ![](https://i.loli.net/2018/02/05/5a77b3ba4a8f8.png)
 
@@ -86,7 +94,7 @@ Cache-Control: max-age=<seconds>  // 过了多久时间过期
 
    ​
 
-## Expire是什么
+## Expires是什么
 
 HTTP设置缓存的一种方法，在HTTP请求和响应中通过**Expires**通用消息头设置来实现缓存。
 
@@ -136,6 +144,8 @@ Expires: Wed, 21 Oct 2018 07:28:00 GMT
 服务器接收请求后，比较客户端的ETag和当前版本资源的ETag的值，匹配则资源没有修改，服务器则返回状态码为 **304 Not Modified** 的HTTP响应，提示客户端本地缓存的资源是最新的，没有修改可以直接使用。
 
 ## HTTP缓存（Cache-Control、Expires)与304的区别
+
+> [HTTP缓存控制小结-孙世吉](http://imweb.io/topic/5795dcb6fb312541492eda8c)
 
 1. 在URI输入栏中输入然后回车
 
