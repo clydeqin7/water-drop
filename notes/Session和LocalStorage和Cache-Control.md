@@ -160,3 +160,19 @@ Expires: Wed, 21 Oct 2018 07:28:00 GMT
    Ctrl+F5要的是**彻底的从Server拿一份新的资源过来**, 请求头部里不会带If-Modified-Since/If-None-Match消息头，服务器响应成功会返回**200 OK**
 
    ​
+
+## Cookie 如何设置过期时间？
+
+通过`Set-Cookie`响应头添加`Expires`或 `Max-Age`实现设置过期时间
+
+`Expires`接收符合`HTTP-date`规范的时间戳，告诉浏览器到什么时候Cookie都有效，时间受到本地设置时间影响（不稳定），
+
+`Max-Age`接收秒数，让浏览器从收到消息多少时间内Cookie有效，
+
+两者同时存在，`Max-Age`优先级更高。
+
+## 如何删除 Cookie？
+
+Cookie默认是在用户关闭页面后失效，设置`Max-Age`的值小于0，设置`Expires`的值为一个过期的时间，比如
+
+`Expires=Thu, 01 Jan 1970 00:00:00 GMT`
