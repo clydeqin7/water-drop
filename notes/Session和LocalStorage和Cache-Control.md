@@ -18,9 +18,17 @@
 
 ![](https://i.loli.net/2018/02/05/5a77b3ba4a8f8.png)
 
+## Cookie 和 Session 的区别
+
+>要点：
+>
+>Cookie 保存在客户端，每次都随请求发送给 Server
+>
+>Session 保存在 Server 的内存里，其 Session ID 是通过 Cookie 发送给客户端的
+
 ## LocalStorage是什么
 
-**浏览器上的hash表**, HTML5新提供的API,window系统是存在C盘的文件实现持久化存储。
+**浏览器上的hash表**, HTML5新提供的API,window系统是存在C盘的文件实现**持久化**存储。
 
 ### 常用方法
 
@@ -59,6 +67,9 @@ storage.clear()
 
 ## LocalStorage与Cookie的区别
 
+>1. LocalStorage 不会随 HTTP 发给 Server
+>2. LocalStorage 的大小限制比 Cookie 大多了
+
 1. 2者在window系统都是存在C盘的一个文件里的,都能进行数据存储
 2. Cookie是属于HTTP里的
 3. LocalStorage是HTML5提供的一个API
@@ -71,6 +82,10 @@ storage.clear()
 ​	1-4点同LocalStorage的特点1-4相同
 
 ​	5. 页面关闭（session结束后）后就会失效
+
+## LocalStorage 和 SessionStorage 的区别
+
+> 一个不会自动过期，一个会自动过期。
 
 ## Cache-Control是什么
 
@@ -146,6 +161,9 @@ Expires: Wed, 21 Oct 2018 07:28:00 GMT
 ## HTTP缓存（Cache-Control、Expires)与304的区别
 
 > [HTTP缓存控制小结-孙世吉](http://imweb.io/topic/5795dcb6fb312541492eda8c)
+>
+> Cache-Control 直接不发请求。
+> 而 ETag 要发请求才行。
 
 1. 在URI输入栏中输入然后回车
 
