@@ -1,4 +1,4 @@
-# JSONP、CROS 、postMessage
+# JSONP、CORS 、postMessage
 
 ## 同源政策
 
@@ -147,7 +147,7 @@ Content-Type: text/html; charset=utf-8
 
 该字段可选。CORS请求时，`XMLHttpRequest`对象的`getResponseHeader()`方法只能拿到6个基本字段：`Cache-Control`、`Content-Language`、`Content-Type`、`Expires`、`Last-Modified`、`Pragma`。如果想拿到其他字段，就必须在`Access-Control-Expose-Headers`里面指定。上面的例子指定，`getResponseHeader('FooBar')`可以返回`FooBar`字段的值。
 
-### 复杂请求的处理
+### 非简单请求的处理
 
 非简单请求是那种对服务器有特殊要求的请求，比如请求方法是`PUT`或`DELETE`，或者`Content-Type`字段的类型是`application/json`。
 
