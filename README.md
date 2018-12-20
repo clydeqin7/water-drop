@@ -1,4 +1,15 @@
 # water-drop 
+
+## 书籍
+- 程序员修炼之道 The Pragmatic Programmer
+- 代码整洁之道 Clean Code
+- 程序员的职业素养 The Clean Code
+- 领域驱动设计和实践 Domain-Driven Design
+- 测试驱动的面向对象软件开发 Growing Object-Oriented Software, Guided by Tests
+- 持续交付 Continuous Delivery
+- 算法 Algorithms
+- JavaScript高级程序设计 Professional JavaScript for Web Developers
+
 ## 点滴记录
 - [修改hosts文件访问w3schools.com](https://github.com/clydeqin7/water-drop/issues/1)  
 - [IDEA 激活工具](http://idea.lanyus.com/)
