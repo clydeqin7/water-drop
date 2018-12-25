@@ -14,13 +14,11 @@
 
 # 选择器的类型
 
->  优先级	1. **类型选择器**（type selectors）（如：`h1`）和**伪元素**（pseudo-elements）（如：
-> ​     低           `::before`）
+>  优先级 ：从上到下，从**低**到**高**
 >
-> ​      |	2. **类选择器**（class selectors）（如：`.example`），**属性选择器**（attributes selectors）（如：
-> ​      |           `[type="radio"]`），**伪类**（pseudo-classes）（如：`:hover`）
->
-> ​     高       3. **ID选择器**（如：`#example`）
+> 1. **类型选择器**（type selectors）（如：`h1`）和**伪元素**（pseudo-elements）（如：`::before`）
+> 2. **类选择器**（class selectors）（如：`.example`），**属性选择器**（attributes selectors）（如：`[type="radio"]`），**伪类**（pseudo-classes）（如：`:hover`）
+> 3. **ID选择器**（如：`#example`）
 
 **通配选择符**（universal selector）(`*`), **关系选择符**（combinators） (`+`, `>`, `~`, '')  和 **否定伪类**（negation pseudo-class）(`:not()`) 对优先级没有影响。（但是，在** :not() 内部声明**的选择器是会影响优先级）。
 
