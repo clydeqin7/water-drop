@@ -18,6 +18,13 @@
 
 [react-native兴趣交流群开源项目整理](https://www.jianshu.com/p/ced34ce5d7b1)
 
+[awesome-react-native](https://github.com/jondot/awesome-react-native)  
+
+[react-native-awesome](https://github.com/crazycodeboy/react-native-awesome)
+
+[react-native-open-project](https://github.com/MarnoDev/react-native-open-project)
+
+
 # 新建项目
 
 使用react native命令行工具新建项目
