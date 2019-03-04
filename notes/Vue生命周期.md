@@ -133,3 +133,8 @@
   **该钩子在服务器端渲染期间不被调用。**
 
 - **参考**：[生命周期图示](#生命周期图示)
+
+# 参考资料
+
++ [Vue生命周期钩子](https://cn.vuejs.org/v2/guide/instance.html#%E5%AE%9E%E4%BE%8B%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90)
++ [详解vue生命周期](https://segmentfault.com/a/1190000011381906)
