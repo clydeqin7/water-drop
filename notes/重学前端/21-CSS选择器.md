@@ -56,3 +56,66 @@ spacificity = base * base * a + base * b + c
 + 根据 id 选单个元素，class 和 class 的组合选成组元素，tag 选择器确定页面风格；
 
 ### 伪元素
+
+目前兼容性达到可用的微元素有以下几类：
+
++ ::first-line
++ ::first-letter
++ ::before
++ ::after
+
+**::first-line 和 ::first-letter 是比较类似的伪元素**，其中一个表示元素的第一行，一个表示元素的第一个字母。下面的例子直观的展示出了效果：
+
+```html
+<p>this is an apple,<br/>
+that is a pen</p>
+```
+
+```css
+p::first-line{ color: red; }
+
+p:first-letter{ text-transform: uppercase }
+```
+
+CSS 标准规定了 first-line 必须出现在最内层的块级元素之内。
+
+```html
+<div>
+  <p id=a>First paragraph</p>
+  <p>Second paragraph</p>
+</div>
+```
+
+```css
+div>p#a { color:green; }
+
+div::first-line { color:blue; }
+```
+
+这段代码最终结果是第一行代码是蓝色，因为 p 是块级元素，所以微元素出现在块级元素之内，所以内层的 color 覆盖了外层的 color 属性。
+
+如果把 p 换成 span，结果就是相反的。
+
+```html
+<div>
+  <span id=a>First paragraph</span><br/>
+  <span>Second paragraph</span>
+</div>
+```
+
+```css
+div>span#a { color:green; }
+
+div::first-line { color:blue; }
+```
+
+这段代码最终结果是绿色，这说明伪元素在 span 之外。
+
+::first-letter 的行为又有所不同，它的位置在所有标签之内。修改前面的代码测下吧。
+
+CSS 标准只要求 ::first-line 和 ::first-letter 实现有限的几个 CSS 属性，都是文本相关的，相见下图。
+
+![from winter 侵删](https://i.loli.net/2019/04/23/5cbe89fbe5dd8.png)
+
+
+
