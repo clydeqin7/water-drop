@@ -131,7 +131,7 @@
 3. 图片服务器对外开放多个域名（如：images1.com、images2.com 等），同时对各个业务线开放不同的业务路径（如：images1.com/homepage 等）
 4. 外网用户请求带特殊参数的图片 URL 时，图片服务器根据 URL 种不同的参数类型，从本地缓存中取得，或者实时对图片进行即时处理，并返回给客户端
 
-## 2.HTML优化
+## 2.HTML
 
 ### 精简 HTML 代码
 
@@ -157,7 +157,7 @@
 - 增加首屏必要的 CSS 和 JS
   - 页面如果需要等待所的依赖的JS和CSS加载完成才显示，则在渲染过程中页面会一直显示空白，影响用户体验，建议增加首屏必要的 CSS 和 JS，比如页面框架背景图片或者 loading 图标，内联在 HTML 页面中。这样做，首屏能快速显示出来，相对减少用户对页面加载等待过程。(比如新浪微博 M 站页面框架)
 
-## 3. CSS优化
+## 3. CSS
 
 ### 提升 CSS 渲染性能
 
@@ -208,9 +208,120 @@
 ### CSS 动画优化
 
 + 尽量避免同时动画
-
 + 延迟动画初始化
 + 结合SVG
+
+## 4. JavaScript
+
+### JavaScript 优化细则
+
+#### JavaScript 优化总体原则
+
++ 当需要时才优化
++  考虑可维护性
+
+#### 提升 JavaScript 文件加载性能
+
++  加载元素的顺序 CSS 文件放在 <head> 里， JavaScript 文件放在 <body> 里。
+
+#### JavaScript 变量和函数优化
+
+- 尽量使用 id 选择器
+- 尽量避免使用 eval
+- JavaScript 函数尽可能保持简洁
+- 使用事件节流函数
+- 使用事件委托
+
+#### JavaScript 动画优化
+
+- 避免添加大量 JavaScript 动画
+- 尽量使用 CSS3 动画
+- 尽量使用 Canvas 动画
+- 合理使用 requestAnimationFrame 动画代替 setTimeout、setInterval
+  - requestAnimationFrame可以在正确的时间进行渲染，setTimeout(callback)和 setInterval(callback)无法保证 callback 回调函数的执行时机
+
+#### 合理使用缓存
+
++ 合理缓存 DOM 对象 
++ 缓存列表长度
++ 使用可缓存的 Ajax
+
+### JavaScript 缓存优化
+
+#### Cookie
+
++ 通常由浏览器存储，然后将 Cookie 与每个后续请求一起发送到同一服务器。收到 HTTP 请求时，服务器可以发送带有 Cookie 的 header 头。可以给 Cookie 设置有 效时间。
+
++ 应用于:
+  - 会话管理：登录名，购物车商品，游戏得分或服务器应要记录的其他任何内容
+  - 个性化：用户首选项，主题或其他设置
+  - 跟踪：记录和分析用户行为，比如埋点
+
+#### sessionStorage
+
++ 创建一个本地存储的键/值对
+
++ 应用于:
+  - 页面应用页面之间传值
+
+#### IndexedDB
+
++ 索引数据库 
++ 应用于:
+  - 客户端存储大量结构化数据
+  - 没有网络连接的情况下使用(比如GoogleDoc、石墨文档)
+  - 将冗余、很少修改、但经常访问的数据，以避免随时从服务器获取数据
+
+#### LocalStorage
+
++ 本地存储
++ 应用于:
+  - 缓存静态文件内容JavaScript/CSS(比如百度M站首页) 
+  - 缓存不常变更的API接口数据
+  - 储存地理位置信息
+  - 浏览在页面的具体位置
+
+### JavaScript 模块化加载方案和选型
+
++ CommonJS
+  - 旨在Web浏览器之外为JavaScript建立模块生态系统
+
++ Node.js模块化方案受CommonJS
+
+- AMD (Asynchronous Module Definition)(异步模块定义)规范
+  - RequireJS模块化加载器:基于AMDAPI实现
+- CMD( Common Module Definition)(通用模块定义)规范
+  - SeaJS模块化加载器:遵循CMDAPI编写
+- ES6 import
+
+## 5. 减少回流和重绘重要举措
+
+### CSS
+
++ 避免过多样式嵌套
+
+- 避免使用 CSS 表达式
+- 使用绝对定位，可以让动画元素脱离文档流
+- 避免使用 table 布局
+- 尽量不使用 float 布局
+- 图片最好设置好 width 和 height
+- 尽量简化浏览器不必要的任务，减少页面重新布局
+- 使用 Viewport 设置屏幕缩放级别
+- 避免频繁设置样式，最好把新 style 属性设置完成后，进行一次性更改
+- 避免使用引起回流/重绘的属性，最好把相应变量缓存起来
+
+### JavaScript
+
++ 最小化回流和重排
+
+  - 为了减少回流发生次数，避免频繁或操作 DOM，可以合并多次对 DOM 修改，然后一次
+
+    性批量处理。
+
++ 控制绘制过程和绘制区域
+
+  - 绘制过程开销比较大的属性设置应该尽量避免减少使用
+  - 减少绘制区域范围
 
 # 二、页面渲染架构设计与性能优化
 
