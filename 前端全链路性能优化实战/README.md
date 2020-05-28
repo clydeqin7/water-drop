@@ -284,9 +284,11 @@
 ### JavaScript 模块化加载方案和选型
 
 + CommonJS
-  - 旨在Web浏览器之外为JavaScript建立模块生态系统
-
-+ Node.js模块化方案受CommonJS
+  
+- 旨在Web浏览器之外为JavaScript建立模块生态系统
+  
+  - Node.js模块化方案受CommonJS
+  
 
 - AMD (Asynchronous Module Definition)(异步模块定义)规范
   - RequireJS模块化加载器:基于AMDAPI实现
@@ -322,6 +324,83 @@
 
   - 绘制过程开销比较大的属性设置应该尽量避免减少使用
   - 减少绘制区域范围
+
+## 6. DOM 编程优化的方式方法
+
+### 控制 DOM 大小
+
+- 众所周知，页面交互卡顿和流畅度很大一部分原因就是页面有大量 DOM 元素。想象一下，从一个上万节点的 DOM 树上，使用 querySelectorAll 或 getElementByTagName 方法查找某一个节点，是非常耗时的。另外元素绑定事件， 事件冒泡和事件捕获的执行也会相对耗时。
+
+- 通常控制 DOM 大小的技巧包括:
+
+  - 合理的业务逻辑
+
+  - 延迟加载即将呈现的内容
+
+### 简化 DOM 操作
+
+- 对DOM节点的操作统一处理后，再统一插入到 DOM Tree中。
+- 可以使用 fragment，尽量不在页面 DOM Tree 里直接操作。
+- 现在流行的框架 Angular、React、Vue 都在使用虚拟 DOM 技术，通过 diff 算法 简化和减少 DOM 操作。
+
+## 7. 静态文件压缩工具介绍
+
+- HTML 压缩工具
+  - html-minifier https://www.npmjs.com/package/html-minifier
+- CSS 压缩工具
+  - clean-css https://www.npmjs.com/package/clean-css
+- JavaScript 压缩工具:
+  - uglify-js https://www.npmjs.com/package/uglify-js
+
+## 8. 静态⽂文件打包⽅方案
+
++ 公共组件拆分
+
+- 压缩:  JavaScript /CSS/图片
+- 合并:  JavaScript /CSS 文件合并，CSS Sprite
+- Combo:  JavaScript /CSS 文件 Combo http://cdn.com/??a.js,b.js 内容
+
+## 9. 静态⽂文件版本号更新策略
+
+### 缓存更新
+
++ CDN 或 ng 后台刷新文件路径，更新文件 header 头
+
+### 文件 name.v1-v100.js
+
++ 大功能迭代每次新增一个大版本，比如由 v1 到 v2
++ 小功能迭代新增加 0.0.1 或者 0.1.0，比如从 v1.0.0 至 v1.0.1 
++ 年末 ng 统一配置所有版本 302 至最新版
+
+### 时间戳.文件 name.js
+
++ 以每次上线时间点做差异
+
+### 文件 hash.文件 name.js
+
++ 以文件内容 hash 值做 key
++ 每次上线，文件路径不一致
+
+## 10. 前端构建工具介绍和选型建议
+
++ Grunt
+  - 最早，一个项目需要定制多个小任务和引用多个插件(质量参差不齐)
+
++ Gulp
+  - 通过流(Stream)来简化多个任务间的配置和输出，配置代码相对较少
+
++ Webpack
+  - 预编译，中间文件在内存中处理，支持多种模块化，配置相对很简单
+
++ FIS
++  JDF
+
+## 11. webpack 打包优化
+
++ 定位体积大的模块
++  删除没有使用的依赖
++ 生产模式进行公共依赖包抽离
++ 开发模式进行 DLL & DllReference 方式优化
 
 # 二、页面渲染架构设计与性能优化
 
