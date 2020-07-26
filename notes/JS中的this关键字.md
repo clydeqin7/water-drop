@@ -4,7 +4,7 @@
 
 `this`关键字是 JavaScript 中很重要的一个概念，本文主要参考 MDN 上的内容<sup>[1]</sup>，梳理总结而成。总结思维导图如下
 
-![](/Users/mac/Pictures/this关键字.png)
+![](https://i.loli.net/2020/07/26/Qvfi8BrTYkJdpDo.png)
 
 ## this的值
 
