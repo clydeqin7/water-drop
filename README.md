@@ -10,6 +10,10 @@
 - 算法 Algorithms
 - JavaScript高级程序设计 Professional JavaScript for Web Developers
 
+## 技术站点
+- [leetcode](https://leetcode.com/)
+- [codewars](https://www.codewars.com/)
+
 ## 点滴记录
 - [修改hosts文件访问w3schools.com](https://github.com/clydeqin7/water-drop/issues/1)  
 - [IDEA 激活工具](http://idea.lanyus.com/)
