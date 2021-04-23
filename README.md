@@ -24,6 +24,10 @@
 - [vscode 自动同步设置与插件](https://www.cphayim.me/blog/vscode-settings-sync.html)
 
 ## Font-End
+- [web.dev](https://web.dev/) google web dev site
+- [codepen](https://codepen.io/)
+- [css-tricks](https://css-tricks.com/)
+- [frontendmasters](https://frontendmasters.com/books/)
 - [Normalize.css](http://necolas.github.io/normalize.css/)
 - CDN [jsDelivr, unpkg, bootcdn, cdnjs]
 - [前端九部 - 入门者手册2019](https://www.yuque.com/fe9/basic)
